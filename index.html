@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+        <title>iChat Web-Application</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+        <script defer src="js/client.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1>Welcome to our Chat Web-Application</h1>
+        <nav>
+            <img class="logo" src="https://imgs.search.brave.com/Jmk1rlFqOfFuq-aUdICvdVXJfKPCcit8GziOkk3_Gv0/rs:fit:600:600:1/g:ce/aHR0cHM6Ly9pMi53/cC5jb20vd3d3LnRp/dGFudWkuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE0LzAy/LzAzL2lPUy1DaGF0/LUFwcC1JY29uLVBT/RC5wbmc_cmVzaXpl/PTYwMCUyQzYwMA" alt="">
+        </nav>
+        <div class="container">
+
+        </div>
+        <div class="send">
+            <form action="#" id="send-container">
+                <div class="text-style">
+                    <i class="fa fa-bold" id="bold"></i>
+                    <i class="fa fa-italic" id="italic"></i>
+                    <i class="fa fa-strikethrough" id="strikethrough"></i>
+                    <i class="fa fa-link" id="link"></i>
+                    <i class="fa fa-list" id="add"></i>
+                    <i class="fa fa-list-ol"></i>
+                    <i class="fas fa-quote-left"></i>
+                    <i class="fa-solid fa-code"></i>
+                      
+                </div>
+                <input type="text" name="messageInp" id="messageInp" contenteditable="true">
+               
+                <div class="text-style">
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-face-smile"></i>
+                    <i class="fa-solid fa-at"></i>  
+                </div>
+                
+                <button class="btn" type="submit">Send</button> 
+            </form>
+            
+        </div>
+
+<script src="https://kit.fontawesome.com/e1f04fba6f.js" crossorigin="anonymous"></script>
+       
+    </body>
+</html>
