@@ -11,12 +11,27 @@ const temp2 = document.getElementById('strikethrough');
 const temp3 = document.getElementById('link');
 const temp4 = document.getElementById('add');
 
-
+var flag_bold = 0;
+var flag_italic = 0;
+var flag_strikethrough = 0;
 const append = (message, position) => {
     const messageElement = document.createElement('div');
     messageElement.innerText = message;
     messageElement.classList.add('message');
     messageElement.classList.add(position);
+    if (flag_bold == 1) {
+        messageElement.style.fontWeight = "bold";
+        flag_bold = 0;
+    }
+    if (flag_italic == 1) {
+        messageElement.style.fontStyle = "italic";
+        flag_italic = 0;
+    }
+    if (flag_strikethrough == 1) {
+        messageElement.style.textDecoration = "line-through";
+        flag_strikethrough = 0;
+    }
+
     messageContainer.append(messageElement);
 }
 
@@ -45,29 +60,42 @@ form.addEventListener('submit', (e) => {
     append(`You:${message}`, 'right');
     socket.emit('send', message);
     messageInput.value = '';
+    messageInput.style.fontStyle = "normal";
+    messageInput.style.fontWeight = "normal";
+    messageInput.style.textDecoration = "none";
 });
 
 
 temp.addEventListener('click', function myfunc() {
-    messageInput.style.fontWeight = "bold";
+    if (flag_bold == 1) {
+        messageInput.style.fontWeight = "normal";
+        flag_bold = 0;
+    }
+    else {
+        messageInput.style.fontWeight = "bold";
+        flag_bold = 1;
+    }
+
 });
 temp1.addEventListener('click', function myfunc() {
-    messageInput.style.fontStyle = "italic";
+    if (flag_italic == 1) {
+        messageInput.style.fontStyle = "normal";
+        flag_italic = 0;
+    } else {
+        messageInput.style.fontStyle = "italic";
+        flag_italic = 1;
+    }
 });
 temp2.addEventListener('click', function myfunc() {
-    messageInput.style.textDecoration = "line-through";
+    if (flag_strikethrough == 1) {
+        messageInput.style.textDecoration = "none";
+        flag_strikethrough = 0;
+    } else {
+        messageInput.style.textDecoration = "line-through";
+        flag_strikethrough = 1;
+    }
 });
 
-temp3.addEventListener('click', function myfunc() {
-    
-});
 
 
-temp4.addEventListener('click', function () {
-    var node = document.createElement("li");
-    var text = document.getElementById("messageInp").value;
-    var textnode = document.createTextNode(text);
-    node.appendChild(textnode);
-    document.getElementById("messageInp").appendChild(node);
-})
 
